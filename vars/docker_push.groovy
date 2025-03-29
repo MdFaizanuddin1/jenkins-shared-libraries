@@ -1,6 +1,5 @@
 def call(String ProjectName, String ImageTag, String DockerHubUser) {
-   script {
-     withCredentials([usernamePassword(credentialsId: 'dockerHubCred', 
+     withCredentials([usernamePassword(credentialsId: 'dockerHubCred',
                     usernameVariable: 'dockerHubUser', 
                     passwordVariable: 'dockerHubPass')]){
 
@@ -9,7 +8,6 @@ def call(String ProjectName, String ImageTag, String DockerHubUser) {
       }
      sh "docker push ${dockerHubUser}/${ProjectName}:${ImageTag}"
    }
-}
 
 // def call(String ProjectName, String ImageTag, String DockerHubUser, String DockerHubPassword) {
 //     script {
